@@ -23,6 +23,7 @@ Issues = "https://github.com/caubios/aioopendoors/issues"
 [tool.poetry.dependencies]
 python = "^3.11"
 aiohttp = "^3.9.3"
+mashumaro = "^3.12"
 
 [tool.poetry.group.dev.dependencies]
 codespell = "2.3.0"
@@ -208,7 +209,7 @@ max-args=10
 max-statements=50
 
 [tool.pylint]
-ignore = ["R0902"]
+ignore = ["R0902","R0903"]
 
 [tool.pylint.MASTER]
 ignore = [
@@ -218,6 +219,7 @@ ignore = [
 [tool.pylint."MESSAGES CONTROL"]
 disable = [
     "too-many-instance-attributes",
+    "too-few-public-methods",
     ]
 
 [tool.mypy]
