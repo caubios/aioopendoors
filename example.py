@@ -11,9 +11,12 @@ from aiohttp import ClientSession, TCPConnector
 
 from aioopendoors.auth import AbstractAuth
 from aioopendoors.exceptions import ApiException
+from aioopendoors.model import LockActionType, LockAttributes, LockState
+from aioopendoors.session import OpendoorSession
 
 _LOGGER = logging.getLogger(__name__)
 
+TIME_TO_PRINT = 1
 
 # Fill out the secrets in secrets.yaml, you can find an example
 # _secrets.yaml file, which has to be renamed after filling out the secrets.
@@ -95,9 +98,34 @@ async def main() -> None:
     """Establish connection to lock and print states for TIME_TO_PRINT minutes."""
     websession = ClientSession(connector=TCPConnector(ssl=False))
 
-    AsyncTokenAuth(websession)
+    api = OpendoorSession(AsyncTokenAuth(websession), poll=True)
 
+    await api.connect()
+
+    # Add a callback to print lock state.
+    api.register_locks_callback(callback)
+
+    await asyncio.sleep(5)
+
+    # Change the state of each known lock
+    for lock_attribute in api.locks.values():
+        action = LockActionType.ACTION_LOCK_LOCK
+        if LockState.LOCKED in lock_attribute.state:
+            action = LockActionType.ACTION_LOCK_UNLOCK
+        _LOGGER.debug("Request for %s", repr(action))
+        await api.lock_action(lock_attribute.uid, action)
+
+    # Let the process keep going for a while
+    await asyncio.sleep(TIME_TO_PRINT * 60)
+    # The close() will stop the websocket and the token refresh tasks
+    await api.close()
     await websession.close()
+
+
+def callback(data: dict[str, LockAttributes]):
+    """Process callbacks and print lock info."""
+    for lock_attribute in data.values():
+        _LOGGER.debug("Lock state is %s", repr(lock_attribute.state))
 
 
 asyncio.run(main())

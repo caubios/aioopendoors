@@ -1,0 +1,21 @@
+{
+    "ERRORS": [],
+    "_ACTIVE_DEVICE": true,
+    "SSO_OAUTH2_TOKEN": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz9876543210ABCDEFGHIJKLMN",
+    "APP_SSO": false,
+    "PAGINATION_PAGE_OFFSET": 0,
+    "PAGINATION_MAX_PP": 100,
+    "SITE_ID": "_12134327606827590722",
+    "ACTUATOR_LIST": [
+        {
+            "ERRORS": [],
+            "DEVICE_SITEID": "_12345678901234567890",
+            "DEVICE_UID": "_01234567890123456789",
+            "ACTUATOR_STATE": 80,
+            "ACTUATOR_DOOR_STATE": 0,
+            "INIT_REQUIRED": 0,
+            "DOWNLOAD_UPDATE": false,
+            "DEVICE_OCSN": "123456789ABCDEF01"
+        }
+    ]
+}
