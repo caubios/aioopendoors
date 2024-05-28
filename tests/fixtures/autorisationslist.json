@@ -1,0 +1,49 @@
+{
+    "ERRORS": [],
+    "SSO_OAUTH2_TOKEN": "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz9876543210ABCDEFGHIJKLMN",
+    "APP_SSO": false,
+    "PAGINATION_PAGE_OFFSET": 0,
+    "PAGINATION_MAX_PP": 100,
+    "AUTHORIZATIONS": [
+        {
+            "SITE_ID": "_12345678901234567890",
+            "SITE_NAME": "Test site",
+            "SITE_DOORS": [
+                {
+                    "DEVICE_UID": "_01234567890123456789",
+                    "DEVICE_SITEID": "_12345678901234567890",
+                    "DEVICE_TYPE": 1,
+                    "DEVICE_OCSN": "123456789ABCDEF01",
+                    "ACTUATOR_NAME": "Test lock",
+                    "ACTUATOR_STATE": 80,
+                    "ACTUATOR_TZ": "Europe/Paris",
+                    "ACTUATOR_CC": "FR",
+                    "ACTUATOR_TZ_OFFSET": 7200,
+                    "ACTUATOR_GROUP_NAME": "Test Group",
+                    "ACTUATOR_READER": null,
+                    "ACTUATOR_AUTO_LOCK": 0,
+                    "_LOCK_KEEPOPEN_TIMEOUT": null,
+                    "ACTUATOR_BATTERYLEVEL": 0,
+                    "ACTUATOR_PICTURE": 0,
+                    "ACTUATOR_DOOR_STATE": 1,
+                    "ACTUATOR_LEAVE_N_GO": 1,
+                    "ACTUATOR_DIRECT_LOCK": 1,
+                    "ACTUATOR_DIRECT_UNLOCK": 0,
+                    "ACTUATOR_NIGHT_MODE": 1,
+                    "ACTUATOR_START_NIGHT_MODE": "22:00",
+                    "ACTUATOR_END_NIGHT_MODE": "07:00",
+                    "ACTUATOR_OPEN_DOOR_ALARM": 10,
+                    "ACTUATOR_BREAKIN_ALARM": 0,
+                    "ACTUATOR_LOCK_PICK_ALARM": 0,
+                    "AUTO_ARMED": false,
+                    "AUTO_DISARMED": false,
+                    "SOMFY_PROTECT_ID": "",
+                    "TOF_SENSOR": true,
+                    "_LASTSYNCDONE": "2024-05-27 12:20:40",
+                    "HAS_ACCESS_GATEWAY": true
+                }
+            ],
+            "SITE_OPENER_ID": "_98765432109876543210"
+        }
+    ]
+}
