@@ -38,7 +38,7 @@ jobs:
       - name: 🏗 Build package
         run: poetry build --no-interaction
       - name: Store the distribution packages
-        uses: actions/upload-artifact@v4.3.5
+        uses: actions/upload-artifact@v4.3.6
         with:
           name: python-package-distributions
           path: dist/
