@@ -2,7 +2,6 @@
 
 import logging
 from abc import ABC, abstractmethod
-from collections.abc import Mapping
 from http import HTTPStatus
 from typing import Any
 
@@ -34,9 +33,7 @@ class AbstractAuth(ABC):
     async def async_get_access_token(self) -> str:
         """Return a valid access token."""
 
-    async def request(
-        self, method: str, url: str, **kwargs: Mapping[str, Any] | None
-    ) -> ClientResponse:
+    async def request(self, method: str, url: str, **kwargs) -> ClientResponse:
         """Make a request."""
         access_token = await self._async_get_access_token()
 
@@ -46,7 +43,7 @@ class AbstractAuth(ABC):
             **kwargs,
         )
 
-    async def get(self, url: str, **kwargs: Mapping[str, Any]) -> ClientResponse:
+    async def get(self, url: str, **kwargs) -> ClientResponse:
         """Make a get request."""
         try:
             resp = await self.request("get", url, **kwargs)
@@ -54,7 +51,7 @@ class AbstractAuth(ABC):
             raise ApiException(f"Error connecting to API: {err}") from err
         return await AbstractAuth._raise_for_status(resp)
 
-    async def get_json(self, url: str, **kwargs: Mapping[str, Any]) -> dict[str, Any]:
+    async def get_json(self, url: str, **kwargs) -> dict[str, Any]:
         """Make a get request and return json response."""
         resp = await self.get(url, **kwargs)
         try:
