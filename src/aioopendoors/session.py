@@ -130,7 +130,7 @@ class OpendoorSession:
         action = self.locks[lock_id].action
         if action is not None:
             if action.action_state != LockActionState.ACTION_STATE_SUCCESS:
-                url = "index.php?page=gateway/get_action" "&json=true" f"&a={action.id}"
+                url = f"index.php?page=gateway/get_action&json=true&a={action.id}"
                 raw_action_update = await self.auth.get_json(url)
                 action_update = LockAction.from_dict(raw_action_update)
                 self.locks[lock_id].action = action_update
