@@ -36,7 +36,7 @@ pylint = "3.3.7"
 pytest = "8.4.1"
 pytest-asyncio = "1.1.0"
 pytest-cov = "6.2.1"
-ruff = "0.11.13"
+ruff = "0.12.3"
 safety = "3.6.0"
 yamllint = "1.37.1"
 syrupy = "4.9.1"
@@ -109,7 +109,6 @@ select = [
     "S317", # suspicious-xml-sax-usage
     "S318", # suspicious-xml-mini-dom-usage
     "S319", # suspicious-xml-pull-dom-usage
-    "S320", # suspicious-xmle-tree-usage
     "S601", # paramiko-call
     "S602", # subprocess-popen-with-shell-equals-true
     "S604", # call-with-shell-equals-true
